@@ -3,20 +3,6 @@
       <div class="position-absolute" style="top:0; bottom:0; left:0; right:0; background-image: url(src/assets/img/main_image.png);
       background-position: center center;"></div>
       <div class="container d-flex flex-column" style="min-height: 100vh;">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="navbar-brand" href="./index.html">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-item nav-link me-4 active" href="./index.html">Home <span class="sr-only">(current)</span></a>
-              <a class="nav-item nav-link me-4" href="./product.html">Product</a>
-              <a class="nav-item nav-link me-4" href="./detail.html">Detail</a>
-              <a class="nav-item nav-link" href="./cart.html"><i class="fas fa-shopping-cart"></i></a>
-            </div>
-          </div>
-        </nav>
         <div class="row justify-content-center my-auto">
           <div class="col-md-4 text-center">
             <h2>Lorem ipsum.</h2>
@@ -26,6 +12,37 @@
         </div>
       </div>
     </div>
+    <div class="row featurette">
+      <div class="col-md-4">
+        <h2 class="featurette-heading">自然 靜心</h2>
+        <p class="lead">探索身心靈的和諧，踏上一段充滿能量的旅程。我們是一座療癒之地，一個與自然融為一體的綠洲。在這裡，每個瞬間都是與靈魂的自我對話，來到這裡，給您身心靈的一個放鬆、恢復活力的空間。
+            無論是晨間的瑜珈冥想，還是黃昏的靜態散步，都能讓您重新與自己連結，感受到內心的平靜和力量。</p>
+      </div>
+      <div class="col-md-8">
+        <img class="featurette-img img-fluid mx-auto" src="../assets/img/rock_maze.png" alt="">
+      </div>
+
+    </div>
+    <div class="row">
+      <h2 class="text-center">體驗活動</h2>
+      <div class="col-lg-3">
+        <img src="../assets/img/courses/courses_herbs.png" style="height: 300px; width:300px" alt="">
+        <h4 class="text-center">草藥研磨體驗</h4>
+      </div>
+      <div class="col-lg-3">
+        <img src="../assets/img/courses/courses_yoga.png" style="height: 300px; width:300px" alt="">
+        <h4 class="text-center">瑜珈伸展</h4>
+      </div>
+      <div class="col-lg-3">
+        <img src="../assets/img/courses/courses_oil.png" style="height: 300px; width:300px" alt="">
+        <h4 class="text-center">精油舒緩</h4>
+      </div>
+      <div class="col-lg-3">
+        <img src="../assets/img/courses/courses_vegan.png" style="height: 300px; width:300px" alt="">
+        <h4 class="text-center">來自大地的饗宴</h4>
+      </div>
+    </div>
+
 </template>
 
 <script>

@@ -1,9 +1,6 @@
 <template>
   <div class="position-relative d-flex">
       <div class="container d-flex flex-column" style="min-height: 100vh;">
-        <nav class="navbar navbar-expand-lg navbar-light px-0">
-          <a class="navbar-brand" href="./index.html">Navbar</a>
-        </nav>
         <div class="row my-auto pb-7">
           <div class="col-md-4 d-flex flex-column">
             <div class="my-auto">

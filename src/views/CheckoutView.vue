@@ -26,7 +26,7 @@
         <div class="col-md-4">
           <div v-for="product in cart" :key="product" class="border p-4 mb-4">
             <div class="d-flex">
-              <img src="https://images.unsplash.com/photo-1502743780242-f10d2ce370f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80" alt="" class="me-2" style="width: 48px; height: 48px; object-fit: cover">
+              <img :src="product.product.imageUrl" alt="" class="me-2" style="width: 48px; height: 48px; object-fit: cover">
               <div class="w-100">
                 <div class="d-flex justify-content-between">
                   <p class="mb-0 fw-bold">{{ product.product.title }}</p>
@@ -78,10 +78,21 @@
                     <VeeField id="email" name="email" type="email" class="form-control" :class="{ 'is-invalid': errors['email'] }"
                       placeholder="請輸入 Email" rules="email|required" v-model="form.user.email" />
                     <ErrorMessage name="email" class="invalid-feedback" />
+                    <!-- <div class="mb-2">
+                      <label for="name" class="form-label">地址</label>
+                       <VeeField id="address" name="地址" type="text" class="form-control" 
+                       placeholder="請輸入地址" rules="required" :class="{ 'is-invalid': errors['地址'] }"
+                        v-model="form.user.address"></VeeField>
+                      <error-message name="地址" class="invalid-feedback"></error-message>
+                    </div> -->
                     <div class="mb-2">
                       <p class="mt-4">訂單備註</p>
-                      <label for="ContactMessage" class="text-muted mb-0">備註</label>
-                      <textarea class="form-control" rows="3" id="ContactMessage" placeholder="有什麼想跟我們說的嗎？"></textarea>
+                      <VeeField id="address" name="備註" type="text" class="form-control" 
+                       placeholder="請輸入交通方式，以及個人特殊需求" rows="3" rules="required" :class="{ 'is-invalid': errors['備註'] }"
+                        v-model="form.user.address"></VeeField>
+                      <error-message name="訂單備註" class="invalid-feedback"></error-message>
+                      <!-- <label for="ContactMessage" class="text-muted mb-0">地址</label>
+                      <textarea class="form-control" rows="3" id="ContactMessage" placeholder="有什麼想跟我們說的嗎？"></textarea> -->
                     </div>
                   </div>
                   <div class="d-flex flex-column-reverse flex-md-row mt-4 justify-content-between align-items-md-center align-items-end">
@@ -145,8 +156,8 @@ export default {
     createOrder() {
       const order = this.form
       axios.post(`${VITE_URL}/api/${VITE_PATH}/order`, { data: order }).then((res) => {
-        console.log(res.data)
-        this.$router.push(`checkout-success`)
+        console.log(res)
+        //this.$router.push(`checkout-success`)
         //this.$router.push(`/checkout/${res.data.orderId}`)
         this.$refs.form.resetForm()
       }).catch((err) => {
