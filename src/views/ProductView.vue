@@ -1,68 +1,55 @@
 <template>
-    <hr>
     <div class="container">
       <div class="row align-items-center">
           <div class="col-md-7">
-            <h2>產品標題</h2>
-            <div class="row">
-                <div class="col-md-7" style="height: 160px; width:300px">
-                    <img style="height:auto; max-width:100%; display:block;" class="photo" :src="product.imageUrl" alt=""> 
-                </div>
+            <h2>森心靈課程</h2>
+            <img class="img-fluid object-fit-cover w-100 mb-2" style="height:32.5em; width: 47.5em;" :src="product.imageUrl" alt=""> 
+          </div>
                 <div class="col-md-5">
                     <span><p>{{ product.category }}</p></span>
                     <h3>{{ product.title }}</h3>
                     <hr>
                     <p>{{ product.description }}</p>
                     <div>
-                        <select class="form-select" aria-label="Default select example">
+                        <select v-model="person_qty" class="form-select" aria-label="Default select example">
                             <option selected>報名人數</option>
-                            <option value="1">1位</option>
-                            <option value="2">2位</option>
-                            <option value="3">3位</option>
-                            <option value="4">4位</option>
-                            <option value="5">5位</option>
-                            <option value="6">6位</option>
+                            <option :value="item" v-for="(item, index) in 6" :key="index">
+                                {{ item }} 位
+                            </option>
                         </select>
                         <p>NT$ {{ product.price }}</p>
-                          <RouterLink :to="`/checkout`">
                             <div class="d-grid gap-2">
                             <button class="btn btn-primary" @click="addToCart"
                           style="background-color: #41774A;" type="button">立即預訂</button></div>
-                        </RouterLink>
                     </div>
-                </div>
-            </div>    
-          </div>
-        </div>
+                  </div>    
+            </div>
       </div>
-    <hr>  
-    <div class="row my-5">
-      <div class="col-md-4">
-        <h3 class="fw-bold">活動內容</h3>
-          <div class="swiper-container mt-4 mb-5">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="card border-0 mb-4 position-relative position-relative">
-                <img :src="product.imagesUrl" class="card-img-top rounded-0" alt="...">
-                <a href="#" class="text-dark">
-                </a>
-                <div class="card-body p-0">
-                  <h4 class="mb-0 mt-3"><a href="#">Lorem ipsum</a></h4>
-                  <p class="card-text mb-0">NT$1,080 <span class="text-muted "><del>NT$1,200</del></span></p>
-                  <p class="text-muted mt-3"></p>
+      <div class="row justify-content-center border-top border-2 py-3">
+        <div class="col-lg-6">
+          <h3 class="fw-bold">活動內容</h3>
+            <div class="swiper-container mt-4 mb-5">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="card border-0 mb-4 position-relative position-relative">
+                  <div >
+                    <img :src="product.imagesUrl" class="card-img-top rounded-0" alt="...">
+                  </div>
+                  <p class="mt-3">{{ product.content }}</p>
                 </div>
               </div>
             </div>
-          </div>
-      </div>  
-    </div>    
-  </div>
+        </div>  
+      </div> 
+    </div>   
 </template>
 
 <script>
 import axios from 'axios'
+//import { ref } from 'vue'
 
 const { VITE_URL, VITE_PATH  } = import.meta.env
+//const person_qty = ref(1)
 
 export default {
   data() {
@@ -79,19 +66,23 @@ export default {
       axios.get(`${VITE_URL}/v2/api/${VITE_PATH}/product/${id}`)
         .then((res) => {
           this.product = res.data.product
+          console.log(res)
         })
         .catch((error) => {
           alert(error)
         })
     },
     addToCart() {
+      //console.log('this.qty',this.qty)
       const order = {
         product_id : this.product.id,
-        qty : 1
+        qty: 1
+        //qty : person_qty.value
       }
       axios.post(`${VITE_URL}/v2/api/${VITE_PATH}/cart/`, { data: order })
-        .then((res) => {
-          console.log(res)
+        .then(() => {
+          console.log(1)
+          this.$router.push('/checkout')
         })
         .catch((error) => {
           alert(error)

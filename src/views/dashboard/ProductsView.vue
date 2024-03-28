@@ -1,8 +1,19 @@
 <template>
-  <hr>
-  <div class="container">
+  <div class="d-flex">
+  <div class="p-2 flex-shrink-0 flex-column text-white" style="width: 17.5em; height:100vh;background-color: #41774A;">
+    <div class="d-md-flex align-content-center">
+      <img src="../../assets/img/logo.png" style="height: 7.5em;" alt="">
+    </div>
+      <ul class="nav flex-column">
+        <li class="nav-item"><RouterLink class="nav-link text-white" 
+          to="/admin/products">產品管理列表</RouterLink></li>
+        <li class="nav-item"><RouterLink class="nav-link text-white" 
+          to="/admin/order">購物車管理列表</RouterLink></li>
+      </ul>
+  </div>
+  <div class="p-2 mt-4 mx-3">
     <h4>產品管理頁面</h4>
-    <table class="table mt-4">
+    <table class="table mt-4 w-100">
       <thead>
         <tr>
           <th width="120">
@@ -56,14 +67,15 @@
     />
   </div>
   <!-- Modal -->
-  <product-modal
+  <!-- <product-modal
     ref="pdModal"
     :add-new="addNew"
     :new-product="newProduct"
     :update-product="updateProduct"
     :add-new-product="addNewProduct"
     :add-images-url="addImagesUrl"
-  />
+  /> -->
+</div>
 </template>
 
 <script>

@@ -1,14 +1,25 @@
 <template>
-  <hr>
-  <div class="container">
-    <h4>訂單管理頁面</h4>
+  <div class="d-flex">
+  <div class="p-2 flex-shrink-0 flex-column text-white" style="width: 17.5em; height:100vh;background-color: #41774A;">
+    <div class="d-md-flex align-content-center">
+      <img src="../../assets/img/logo.png" style="height: 7.5em;" alt="">
+    </div>
+      <ul class="nav flex-column">
+        <li class="nav-item"><RouterLink class="nav-link text-white" 
+          to="/admin/products">產品管理列表</RouterLink></li>
+        <li class="nav-item"><RouterLink class="nav-link text-white" 
+          to="/admin/order">購物車管理列表</RouterLink></li>
+      </ul>
+  </div>
+  <div class="p-2 mt-4 mx-3 w-100">
+    <h4>購物車管理頁面</h4>
     <table class="table mt-4">
       <thead>
         <tr>
           <th width="120">
             訂購人姓名
           </th>
-          <th>地址</th>
+          <th>備註</th>
           <th width="120">
             電話
           </th>
@@ -25,7 +36,7 @@
         :key="item.id"
       >
         <tr>
-          <td>{{ item.use.name }}</td>
+          <td>{{ item.user.name }}</td>
           <td>{{ item.user.address }}</td>
           <td class="text-end">
             {{ item.user.tel }}
@@ -39,12 +50,13 @@
         </tr>
       </tbody>
     </table>
-    <pagination
+    <!-- <pagination
       style="display: flex; justify-content: center;align-items: center;"
       :pages="pages"
       :get-products="getCarts"
-    />
+    /> -->
   </div>
+</div>  
 </template>
 
 
@@ -80,7 +92,7 @@ export default {
           })
           .catch(() => {
             alert('尚未登入會員，請重新登入！')
-            this.$router.push('login') // 跳轉到login頁面
+            this.$router.push('/admin') // 跳轉到login頁面
           })
         // eslint-disable-next-line no-empty
       } else {
@@ -92,9 +104,8 @@ export default {
       // eslint-disable-next-line no-undef
       axios.get(`${VITE_URL}/v2/api/${VITE_PATH}/admin/orders`)
         .then((res) => {
-          console.log(res)
+          console.log('res',res)
           this.carts = res.data.orders
-          //this.pages = res.data.pagination
         })
         .catch((error) => {
           alert(error)
@@ -102,64 +113,6 @@ export default {
      }
   },
   // eslint-disable-next-line vue/order-in-components
-  components: {
-  },
 
 }
 </script>
-
-<!-- <template>
-    <h2>OrderView</h2>
-    <div class="container">
-    <table class="table mt-4">
-      <thead>
-        <tr>
-          <th width="120">
-            分類
-          </th>
-          <th>產品名稱</th>
-          <th width="120">
-            原價
-          </th>
-          <th width="120">
-            售價
-          </th>
-          <th width="100">
-            是否啟用
-          </th>
-          <th width="120">
-            編輯
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        v-for="(product) in products"
-        :key="product.id"
-      >
-        <tr>
-          <td>{{ product.category }}</td>
-          <td>{{ product.title }}</td>
-          <td class="text-end">
-            {{ product.origin_price }}
-          </td>
-          <td class="text-end">
-            {{ product.price }}
-          </td>
-          <td>
-            <span
-              v-if="product.is_enabled===1"
-              class="text-success"
-            >啟用</span>
-            <span v-else>未啟用</span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <pagination
-      style="display: flex; justify-content: center;align-items: center;"
-      :pages="pages"
-      :get-products="getProducts"
-    />
-  </div>
-    <RouterView></RouterView>
-</template> -->

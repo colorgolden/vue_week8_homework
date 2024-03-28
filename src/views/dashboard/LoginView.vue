@@ -11,12 +11,8 @@
         type="email"
         class="form-control"
         aria-describedby="emailHelp"
-        placeholder="Enter email"
+        placeholder="請輸入電子信箱"
       >
-      <!-- <small
-        id="emailHelp"
-        class="form-text text-muted"
-      >We'll never share your email with anyone else.</small> -->
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">管理者密碼</label>
@@ -25,13 +21,14 @@
         v-model="user.password"
         type="password"
         class="form-control"
-        placeholder="Password"
+        placeholder="請輸入密碼"
       >
     </div>
     <button
       type="button"
       class="btn btn-primary"
       @click="login"
+      style="background-color: #41774A;"
     >
       登入
     </button>
@@ -54,7 +51,6 @@ export default {
   },
 
   created () {
-    // this.checkLogin();
   },
   mounted () {
     console.log(this.$router, this.$route)
