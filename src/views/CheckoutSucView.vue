@@ -1,9 +1,6 @@
 <template>
   <div class="position-relative d-flex">
       <div class="container d-flex flex-column" style="min-height: 100vh;">
-        <nav class="navbar navbar-expand-lg navbar-light px-0">
-          <a class="navbar-brand" href="./index.html">Navbar</a>
-        </nav>
         <div class="row my-auto pb-7">
           <div class="col-md-4 d-flex flex-column">
             <div class="my-auto">
@@ -14,7 +11,8 @@
           </div>
         </div>
       </div>
-      <div class="w-md-50 w-100 position-absolute opacity-1" style="z-index: -1; min-height: 100vh; right: 0; background-image: url(https://images.unsplash.com/photo-1480399129128-2066acb5009e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+      <div class="w-md-50 w-100 position-absolute opacity-1" style="z-index: -1; min-height: 100vh; right: 0; 
+      background-image: url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=2674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
       background-position: center center;">
       </div>
     </div>

@@ -63,7 +63,7 @@ export default {
         .then((res) => {
           alert(res.data.message)
           const { token, expired } = res.data // 寫入 cookie token
-          console.log('test',res.data,token,expired)
+          console.log('token',token)
           document.cookie = `newToken=${token}; expires=${new Date(expired)};` // expires 設置有效時間
           this.$router.push('/admin/products')
         })

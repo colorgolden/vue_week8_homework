@@ -2,8 +2,9 @@
   <div class="position-relative" style="min-height: 400px;">
         <!-- <img class="background-position: center center;" src="../assets/img/banner/glamp3.png" alt=""> -->
       <div class="position-absolute"
-        style="top:0; bottom: 0; left: 0; right: 0; background-image: url('src/assets/img/banner/glamp3.png'); background-position: center center;">
+        style="top:0; bottom: 0; left: 0; right: 0; background-position: center center;">
       </div>
+      <img class="w-100" src="../assets/img/banner/glamp3.png" alt="">
   </div>
   <div class="container">
     <div class="row">
@@ -20,11 +21,11 @@
           </div>
         </div>
         <div class="col-md-9">
-          <div class="row ">
+          <div class="row">
               <div class="col-md-4 mr-1 mb-2 mt-5 card border-0 position-relative" v-for="product in products" :key="product.id">
-                <div class="card" style=" border-radius: 1.25em; height:22em; width: 17rem;">
-                  <Router-link :to="`/product/${product.id}`"><img :src="product.imageUrl" class="card-img-top rounded-50 object-fit-cover"
-                    style="border-radius: 1.25em; height:15em; object-fit: cover;" alt="..."></Router-link>
+                <div class="card" style=" border-radius: 1.25em; height:24em; width: 17rem;">
+                  <Router-link :to="`/products/${product.id}`"><img :src="product.imageUrl" class="card-img-top rounded-50 object-fit-cover"
+                    style="border-radius: 1.25em 1.25em 0em 0em; height:15em; object-fit: cover;" alt="..."></Router-link>
                   <div class="card-body">
                     <h5 class="card-title">{{ product.title }}</h5>
                     <span>
